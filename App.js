@@ -1,29 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View, StatusBar } from 'react-native';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 
+import DateSelector from './containers/DateSelector/DateSelector';
+import Calculator from './containers/Calculator/Calculator';
+
 import reducer from './store/reducer';
+import styles from './config/styles';
 
 const store = createStore(reducer);
 
 export default class App extends React.Component {
-  render() {
-    return (
-      <Provider store={store}>
-        <View style={styles.container}>
-          <Text>Hello world!!!</Text>
-        </View>
-      </Provider>
-    );
-  }
+    render() {
+        return (
+            <Provider store={store}>
+                <View style={styles.container}>
+                    <StatusBar hidden={true} />
+                    <DateSelector />
+                    <Calculator />
+                </View>
+            </Provider>
+        );
+    }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
