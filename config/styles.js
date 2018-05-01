@@ -12,12 +12,16 @@ const styles = StyleSheet.create({
     dateSelector: {
         flex: 1,
         backgroundColor: colors.coral,
+        alignItems: 'center',
+        justifyContent: 'center',
         alignSelf: 'stretch',
+        padding: 8,
     },
     calculator: {
         flex: 9,
         backgroundColor: colors.eggshell,
         alignSelf: 'stretch',
+        padding: 8,
     }
 });
 
