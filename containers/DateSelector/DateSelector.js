@@ -1,29 +1,31 @@
 import React, { Component } from 'react';
 import { Button, DatePickerAndroid, Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import moment from 'moment';
 
 import styles from '../../config/styles';
 import * as actionTypes from '../../store/actions';
 
 class DateSelector extends Component {
-    render() {
-        onPress = async () => {
-            try {
-                const { action, year, month, day } = await DatePickerAndroid.open({
-                    date: new Date()
-                });
-                if (action !== DatePickerAndroid.dismissedAction) {
-                    this.props.onDateChange(year, month, day);
-                }
-            } catch ({ code, message }) {
-                console.warn('Cannot open date picker', message);
+    onPress = async () => {
+        try {
+            const { action, year, month, day } = await DatePickerAndroid.open({
+                date: moment(this.props.date).toDate()
+            });
+            if (action !== DatePickerAndroid.dismissedAction) {
+                this.props.onDateChange(year, month, day);
             }
+        } catch ({ code, message }) {
+            console.warn('Cannot open date picker', message);
         }
+    }
+
+    render() {
 
         return (
             <View style={styles.dateSelector}>
                 <Button
-                    onPress={onPress}
+                    onPress={this.onPress}
                     title={this.props.date}
                     color="#841584"
                 />
