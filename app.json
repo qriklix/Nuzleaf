@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+    "name": "Nuzleaf",
+    "icon": "./assets/icon.png",
+    "version": "1.0.0",
+    "slug": "nuzleaf",
+    "sdkVersion": "27.0.0",
+    "ios": {
+      "bundleIdentifier": "hu.zergling.nuzleaf"
+    },
+    "android": {
+      "package": "hu.zergling.nuzleaf"
+    }
   }
 }
