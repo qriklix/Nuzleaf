@@ -41,6 +41,10 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.yrielYellow,
         padding: 8,
+    },
+    rowsContaienr: {
+        flex: 1,
+        flexDirection: 'row',
     }
 });
 
