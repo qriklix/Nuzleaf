@@ -3,7 +3,7 @@ import { Button, DatePickerAndroid, Text, View } from 'react-native';
 import { connect } from 'react-redux';
 import moment from 'moment';
 
-import styles from '../../config/styles';
+import style from './DateSelectorStyle';
 import * as actionTypes from '../../store/actions';
 
 class DateSelector extends Component {
@@ -23,7 +23,7 @@ class DateSelector extends Component {
     render() {
 
         return (
-            <View style={styles.dateSelector}>
+            <View style={style.dateSelector}>
                 <Button
                     onPress={this.onPress}
                     title={this.props.date}

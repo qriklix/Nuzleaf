@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Row from './Row/Row';
 
-import styles from '../../config/styles';
+import style from './CalculatorStyle';
 
 class Calculator extends Component {
     render() {
@@ -15,15 +15,15 @@ class Calculator extends Component {
         }).reverse();
 
         return (
-            <View style={styles.calculator}>
-                <View style={styles.inputsCol}>
+            <View style={style.calculator}>
+                <View style={style.inputsCol}>
                     <ScrollView horizontal={true}>
-                        <View style={styles.rowsContainer}>
+                        <View style={style.rowsContainer}>
                             {rows}
                         </View>
                     </ScrollView>
                 </View>
-                <View style={styles.sumCol}>
+                <View style={style.sumCol}>
                     <Text>Sum part...</Text>
                 </View>
             </View>
