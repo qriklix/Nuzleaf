@@ -11,7 +11,7 @@ const inputCell = (props) => {
                 underlineColorAndroid="transparent"
                 keyboardType="numeric"
                 selectTextOnFocus
-                value={props.value.toString()}
+                value={props.value}
                 onChangeText={text => props.changed(props.bankNote, props.column, text)} />
         </View>
     );

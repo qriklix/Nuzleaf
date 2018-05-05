@@ -5,28 +5,29 @@ import moment from 'moment';
 const currentDate = moment().format("YYYY-MM-DD");
 
 const threeFields = {
-    sum: 0,
-    darab: 0,
-    kassza: 0
+    sum: '0',
+    darab: '0',
+    kassza: '0'
 }
 
 const fourFields = {
     ...threeFields,
-    felre: 0
+    felre: '0'
 }
 
 const sixFields = {
-    sum: 0,
-    talka: 0,
-    felre: 0,
-    rolni: 0,
-    bontott: 0,
-    kassza: 0
+    sum: '0',
+    talka: '0',
+    felre: '0',
+    rolni: '0',
+    bontott: '0',
+    kassza: '0'
 }
 
 const initialState = {
     theme: 'sky',
     date: currentDate,
+    dataHistory: {},
     data: {
         20000: { ...threeFields },
         10000: { ...threeFields },
@@ -52,9 +53,18 @@ const reducer = (state = initialState, action) => {
                 'date': action.payload.d
             }).format("YYYY-MM-DD");
 
+            const newData = state.dataHistory[newDate]
+                ? JSON.parse(JSON.stringify(state.dataHistory[newDate]))
+                : JSON.parse(JSON.stringify(initialState.data));
+
             return {
                 ...state,
-                date: newDate
+                date: newDate,
+                data: newData,
+                dataHistory: {
+                    ...state.dataHistory,
+                    [state.date]: JSON.parse(JSON.stringify(state.data))
+                }
             };
         case actionTypes.CHANGE_FIELD_VALUE:
             const { bankNote, column, value } = action.payload;
