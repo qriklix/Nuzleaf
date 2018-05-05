@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { connect } from 'react-redux';
 
 import Row from './Row/Row';
+import SumRow from './Row/SumRow';
 import RowHeader from './Row/RowHeader';
 
 import style from './CalculatorStyle';
@@ -21,9 +22,21 @@ class Calculator extends Component {
             )
         });
 
+        const paperSumRows = papers.map((bankNote, i) => {
+            return (
+                <SumRow key={i} bankNote={bankNote} {...data[bankNote]} />
+            )
+        });
+
         const coinRows = coins.map((bankNote, i) => {
             return (
                 <Row key={i} bankNote={bankNote} {...data[bankNote]} />
+            )
+        });
+
+        const coinSumRows = coins.map((bankNote, i) => {
+            return (
+                <SumRow key={i} bankNote={bankNote} {...data[bankNote]} />
             )
         });
 
@@ -31,16 +44,21 @@ class Calculator extends Component {
             <View style={style.calculator}>
                 <View style={style.inputsCol}>
                     <ScrollView horizontal={true}>
+                        {/* <TouchableOpacity> */}
                         <View style={style.rowsContainer}>
                             <RowHeader cells={['Címlet', null, null, 'Félre', 'Darab', 'Kassza']} />
                             {paperRows}
                             <RowHeader cells={['Címlet', 'Tálka', 'Félre', 'Rolni', 'Bontott', 'Kassza']} />
                             {coinRows}
                         </View>
+                        {/* </TouchableOpacity> */}
                     </ScrollView>
                 </View>
                 <View style={style.sumCol}>
-                    <Text>Sum part...</Text>
+                    <RowHeader cells={['Összesítve']} />
+                    {paperSumRows}
+                    <RowHeader cells={['Összesítve']} />
+                    {coinSumRows}
                 </View>
             </View>
         );

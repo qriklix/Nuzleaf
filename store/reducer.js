@@ -56,7 +56,19 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 date: newDate
             };
+        case actionTypes.CHANGE_FIELD_VALUE:
+            const { bankNote, column, value } = action.payload;
 
+            return {
+                ...state,
+                data: {
+                    ...state.data,
+                    [bankNote]: {
+                        ...state.data[bankNote],
+                        [column]: value
+                    }
+                }
+            };
         default:
             return state;
     }

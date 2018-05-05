@@ -11,6 +11,11 @@ const styles = StyleSheet.create({
     },
     cell: {
         width: 100
+    },
+    inputCell: {
+        backgroundColor: '#bfe7f1',
+        width: 80,
+        textAlign: 'center'
     }
 });
 

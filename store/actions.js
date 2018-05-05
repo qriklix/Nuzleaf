@@ -1,1 +1,2 @@
 export const CHANGE_DATE = 'CHANGE_DATE';
+export const CHANGE_FIELD_VALUE = 'CHANGE_FIELD_VALUE';

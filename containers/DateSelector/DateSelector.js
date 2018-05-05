@@ -21,13 +21,21 @@ class DateSelector extends Component {
     }
 
     render() {
+        let sum = 0;
 
         return (
             <View style={style.dateSelector}>
                 <Button
+                    style={style.dateSelectorButton}
                     onPress={this.onPress}
-                    title={this.props.date}
+                    title={'Dátum: ' + this.props.date}
                     color="#841584"
+                />
+                <Button
+                    style={style.dateSelectorButton}
+                    title={'Összeg: ' + sum.toString()}
+                    color="#fa8072"
+                    onPress={() => { }}
                 />
             </View>
         );
