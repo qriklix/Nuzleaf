@@ -16,10 +16,12 @@ const fourFields = {
 }
 
 const sixFields = {
-    ...threeFields,
+    sum: 0,
     talka: 0,
+    felre: 0,
     rolni: 0,
-    bontott: 0
+    bontott: 0,
+    kassza: 0
 }
 
 const initialState = {
