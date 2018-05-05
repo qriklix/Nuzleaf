@@ -23,6 +23,7 @@ const sixFields = {
 }
 
 const initialState = {
+    theme: 'sky',
     date: currentDate,
     data: {
         20000: { ...threeFields },

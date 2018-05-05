@@ -1,10 +1,9 @@
 import { StyleSheet } from 'react-native';
-import colors from './../../config/colors';
+import theme from './../../config/theme';
 
 const styles = StyleSheet.create({
     calculator: {
         flex: 9,
-        backgroundColor: colors.eggshell,
         alignSelf: 'stretch',
         flexDirection: 'row',
         flexWrap: 'wrap',
@@ -13,12 +12,12 @@ const styles = StyleSheet.create({
     inputsCol: {
         flex: 3,
         maxWidth: '75%',
-        backgroundColor: colors.eggshell,
+        backgroundColor: theme.secondary.backgroundColor,
         padding: 8,
     },
     sumCol: {
         flex: 1,
-        backgroundColor: colors.yrielYellow,
+        backgroundColor: theme.quaternary.backgroundColor,
         padding: 8,
     },
     rowsContaienr: {

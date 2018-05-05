@@ -1,10 +1,10 @@
 import { StyleSheet } from 'react-native';
-import colors from './../../config/colors';
+import theme from './../../config/theme';
 
 const styles = StyleSheet.create({
     dateSelector: {
         flex: 1,
-        backgroundColor: colors.coral,
+        backgroundColor: theme.primary.backgroundColor,
         alignItems: 'center',
         justifyContent: 'center',
         alignSelf: 'stretch',
