@@ -6,7 +6,7 @@ import style from './RowStyle';
 const sumRow = (props) => {
     return (
         <View style={style.row}>
-            <Text>0 / {props.bankNote} = {+props.bankNote * 2}</Text>
+            <Text>{props.db} / {props.bankNote} = {props.sum}</Text>
         </View>
     );
 }

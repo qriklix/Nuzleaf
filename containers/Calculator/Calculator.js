@@ -44,14 +44,12 @@ class Calculator extends Component {
             <View style={style.calculator}>
                 <View style={style.inputsCol}>
                     <ScrollView horizontal={true}>
-                        {/* <TouchableOpacity> */}
                         <View style={style.rowsContainer}>
                             <RowHeader cells={['Címlet', null, null, 'Félre', 'Darab', 'Kassza']} />
                             {paperRows}
                             <RowHeader cells={['Címlet', 'Tálka', 'Félre', 'Rolni', 'Bontott', 'Kassza']} />
                             {coinRows}
                         </View>
-                        {/* </TouchableOpacity> */}
                     </ScrollView>
                 </View>
                 <View style={style.sumCol}>

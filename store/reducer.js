@@ -4,19 +4,21 @@ import moment from 'moment';
 // init
 const currentDate = moment().format("YYYY-MM-DD");
 
-const threeFields = {
+const fourFields = {
     sum: '0',
     darab: '0',
-    kassza: '0'
+    kassza: '0',
+    db: '0'
 }
 
-const fourFields = {
-    ...threeFields,
+const fiveFields = {
+    ...fourFields,
     felre: '0'
 }
 
-const sixFields = {
+const sevenFields = {
     sum: '0',
+    db: '0',
     talka: '0',
     felre: '0',
     rolni: '0',
@@ -29,18 +31,18 @@ const initialState = {
     date: currentDate,
     dataHistory: {},
     data: {
-        20000: { ...threeFields },
-        10000: { ...threeFields },
-        5000: { ...threeFields },
-        2000: { ...threeFields },
-        1000: { ...threeFields },
-        500: { ...fourFields },
-        200: { ...sixFields },
-        100: { ...sixFields },
-        50: { ...sixFields },
-        20: { ...sixFields },
-        10: { ...sixFields },
-        5: { ...sixFields },
+        20000: { ...fourFields },
+        10000: { ...fourFields },
+        5000: { ...fourFields },
+        2000: { ...fourFields },
+        1000: { ...fourFields },
+        500: { ...fiveFields },
+        200: { ...sevenFields },
+        100: { ...sevenFields },
+        50: { ...sevenFields },
+        20: { ...sevenFields },
+        10: { ...sevenFields },
+        5: { ...sevenFields },
     },
 }
 
@@ -69,14 +71,42 @@ const reducer = (state = initialState, action) => {
         case actionTypes.CHANGE_FIELD_VALUE:
             const { bankNote, column, value } = action.payload;
 
+            const newBankNoteData = {
+                ...state.data[bankNote],
+                [column]: value !== '' ? parseInt(value).toString() : '0'
+            }
+
+            const db = Object.keys(newBankNoteData).reduce((acc, col) => {
+                let db = 0;
+
+                if (col !== 'db' && col !== 'sum') {
+                    if (col === 'rolni') {
+                        switch (bankNote) {
+                            case '200':
+                                db += 40 * +newBankNoteData['rolni'];
+                                break;
+                            case '100':
+                                db += 20 * +newBankNoteData['rolni'];
+                                break;
+                            default:
+                                db += 50 * +newBankNoteData['rolni'];
+                        }
+                    } else {
+                        db += +newBankNoteData[col];
+                    }
+                }
+
+                return acc + db;
+            }, 0);
+
+            newBankNoteData.db = db.toString();
+            newBankNoteData.sum = (db * +bankNote).toString();
+
             return {
                 ...state,
                 data: {
                     ...state.data,
-                    [bankNote]: {
-                        ...state.data[bankNote],
-                        [column]: value
-                    }
+                    [bankNote]: newBankNoteData
                 }
             };
         default:
