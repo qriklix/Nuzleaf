@@ -109,6 +109,11 @@ const reducer = (state = initialState, action) => {
                     [bankNote]: newBankNoteData
                 }
             };
+        case actionTypes.RESET_CALCULATOR:
+            return {
+                ...state,
+                data: JSON.parse(JSON.stringify(initialState.data))
+            }
         default:
             return state;
     }

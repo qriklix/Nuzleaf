@@ -19,6 +19,10 @@ const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'stretch',
         alignItems: 'center',
+    },
+    deleteButton: {
+        color: 'red',
+        fontSize: 22,
     }
 });
 

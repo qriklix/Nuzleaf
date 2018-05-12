@@ -45,9 +45,9 @@ class Calculator extends Component {
                 <View style={style.inputsCol}>
                     <ScrollView horizontal={true}>
                         <View style={style.rowsContainer}>
-                            <RowHeader cells={['Címlet', null, null, 'Félre', 'Darab', 'Kassza']} />
+                            <RowHeader moneyType="paper" cells={['Címlet', null, null, 'Félre', 'Darab', 'Kassza']} />
                             {paperRows}
-                            <RowHeader cells={['Címlet', 'Tálka', 'Félre', 'Rolni', 'Bontott', 'Kassza']} />
+                            <RowHeader moneyType="coin" cells={['Címlet', 'Tálka', 'Félre', 'Rolni', 'Bontott', 'Kassza']} />
                             {coinRows}
                         </View>
                     </ScrollView>

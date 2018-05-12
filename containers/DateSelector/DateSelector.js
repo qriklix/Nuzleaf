@@ -41,6 +41,10 @@ class DateSelector extends Component {
                     color="#fa8072"
                     onPress={() => { }}
                 />
+                <Text
+                    style={style.deleteButton}
+                    onPress={() => this.props.onResetCalculator()}> ✘
+                </Text>
             </View>
         );
     }
@@ -57,6 +61,9 @@ const mapDispatchToProps = dispatch => {
         onDateChange: (y, m, d) => dispatch({
             type: actionTypes.CHANGE_DATE,
             payload: { y: y, m: m, d: d }
+        }),
+        onResetCalculator: () => dispatch({
+            type: actionTypes.RESET_CALCULATOR
         }),
     }
 }
