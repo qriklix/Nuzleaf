@@ -25,7 +25,7 @@ class DateSelector extends Component {
 
         const sum = bankNotes.reduce((acc, bankNote) => {
             return acc + +this.props.data[bankNote].sum;
-        }, -40000);
+        }, /*-40000*/0);
 
         return (
             <View style={style.dateSelector}>
